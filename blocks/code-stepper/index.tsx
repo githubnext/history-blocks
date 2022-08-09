@@ -72,7 +72,7 @@ export default ({ tree, context, onRequestGitHubData }: FolderBlockProps) => {
     setFiles(sortedFiles)
     setIsLoading(false);
   }
-  useEffect(() => { onUpdateFiles() }, [context.path])
+  useEffect(() => { onUpdateFiles() }, [context.path, context.sha])
 
 
   if (isLoading) return (
