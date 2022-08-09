@@ -8,7 +8,11 @@
   },
   "dependencies": {
     "@githubnext/blocks": "^2.0.2",
+    "@octokit/types": "^6.41.0",
+    "framer-motion": "^7.0.0",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "react-range": "^1.8.14",
+    "react-syntax-highlighter": "^15.5.0"
   }
 }

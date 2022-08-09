@@ -1,20 +1,11 @@
 [
   {
-    "type": "file",
-    "id": "file-block",
-    "title": "Example File Block",
-    "description": "A basic file block",
-    "entry": "blocks/example-file-block/index.tsx",
-    "matches": ["*"],
-    "example_path": "https://github.com/facebook/react/blob/main/packages/react-dom/index.js"
-  },
-  {
     "type": "folder",
-    "id": "folder-block",
-    "title": "Example Folder Block",
-    "description": "A basic folder block",
-    "entry": "blocks/example-folder-block.tsx",
+    "id": "code-stepper",
+    "title": "Code Stepper",
+    "description": "Step through versions of code: each version should have the same filename, followed by a number.",
+    "entry": "blocks/code-stepper/index.tsx",
     "matches": ["*"],
-    "example_path": "https://github.com/githubocto/flat"
+    "example_path": "https://github.com/cs50/lectures/tree/python/2022/2/src2"
   }
 ]
