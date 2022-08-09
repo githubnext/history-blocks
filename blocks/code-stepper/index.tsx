@@ -17,6 +17,7 @@ export type File = RawTree["tree"][0] & {
 }
 export default ({ tree, context, onRequestGitHubData }: FolderBlockProps) => {
   const [files, setFiles] = useState<File[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [activeFileIndex, setActiveFileIndex] = useState<number>(0);
   const getLessonNameFromLessonPath = (lessonPath: string) => {
     const filename = lessonPath.split("/").pop()?.split(".")[0] || "";
@@ -46,7 +47,6 @@ export default ({ tree, context, onRequestGitHubData }: FolderBlockProps) => {
 
   const onFetchFileContents = async (path) => {
     const url = `/repos/${context.owner}/${context.repo}/contents/${path}`
-    console.log(url)
     const data = await onRequestGitHubData(url, {
       ref: context.sha,
     });
@@ -60,7 +60,6 @@ export default ({ tree, context, onRequestGitHubData }: FolderBlockProps) => {
       && item.path?.slice(context.path.length + 1).split("/").length === 1
     ))
     // .slice(0, 3)
-    console.log(immediateFiles, tree, context)
     const files = await Promise.all(immediateFiles.map(async item => {
       const data = await onFetchFileContents(item.path);
       return { ...item, content: data }
@@ -71,8 +70,21 @@ export default ({ tree, context, onRequestGitHubData }: FolderBlockProps) => {
       return 0;
     })
     setFiles(sortedFiles)
+    setIsLoading(false);
   }
   useEffect(() => { onUpdateFiles() }, [context.path])
+
+
+  if (isLoading) return (
+    <Box className={tw`flex flex-col items-center justify-center w-full h-full italic`} color="fg.subtle">
+      Loading...
+    </Box>
+  )
+  if (!files.length) return (
+    <Box className={tw`flex flex-col items-center justify-center w-full h-full italic`} color="fg.subtle">
+      No files found
+    </Box>
+  )
 
   return (
     <Box p={4}>
@@ -125,10 +137,10 @@ export default ({ tree, context, onRequestGitHubData }: FolderBlockProps) => {
                     "bg-[#ddf4ff] px-4 py-3 text-[#0550ae]"
                   )}
                 >
-                  <Box className={tw`w-[2em] mr-1 text-[#0550ae]`}>
+                  <Box className={tw`w-[2em] mr-1 text-[#0550ae] select-none`}>
                     {index + 1}
                   </Box>
-                  {line.slice(1).trim()}
+                  {line}
                 </motion.div>
               )
               const numberOfMatchingPreviousLines = lines.slice(0, index).filter(previousLine => previousLine === line).length;
@@ -144,7 +156,7 @@ export default ({ tree, context, onRequestGitHubData }: FolderBlockProps) => {
                   transition={{ duration: 0.3 }}
                   exit={{ x: -30, opacity: 0.5 }}
                 >
-                  <Box className={tw`w-[2em] mr-1`} color="fg.subtle">
+                  <Box className={tw`w-[2em] mr-1 select-none`} color="fg.subtle">
                     <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
                       {index + 1}
                     </motion.span>
@@ -152,12 +164,12 @@ export default ({ tree, context, onRequestGitHubData }: FolderBlockProps) => {
                   <SyntaxHighlighter
                     language={syntaxHighlighterLanguageMap[language] || "javascript"}
                     lineNumberStyle={{ opacity: 0.45 }}
-                    className={tw(`!p-0`)}
+                    className={tw(`!p-0 !bg-transparent`)}
                     wrapLines
                     wrapLongLines
                     style={style}
                   >
-                    {line}
+                    {line || " "}
                   </SyntaxHighlighter>
                 </motion.div>
               )
