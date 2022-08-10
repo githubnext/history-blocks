@@ -21,7 +21,7 @@ export const Timeline = ({
       if (nextFileIndex >= files.length - 1) setIsPlaying(false);
       setActiveFileIndex(nextFileIndex)
     },
-    isPlaying ? 500 : null
+    isPlaying ? 2700 : null
   );
 
   return (

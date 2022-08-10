@@ -9,7 +9,9 @@
   "dependencies": {
     "@githubnext/blocks": "^2.0.2",
     "@octokit/types": "^6.41.0",
+    "diff-linetoword": "^1.1.2",
     "framer-motion": "^7.0.0",
+    "git-diff": "^2.0.6",
     "liquidjs": "^9.39.2",
     "prop-types": "^15.8.1",
     "react": "^18.1.0",
@@ -17,6 +19,8 @@
     "react-liquid": "^2.0.1",
     "react-range": "^1.8.14",
     "react-syntax-highlighter": "^15.5.0",
-    "showdown": "^2.1.0"
+    "showdown": "^2.1.0",
+    "unidiff": "^1.0.2",
+    "use-debounce": "^8.0.3"
   }
 }
