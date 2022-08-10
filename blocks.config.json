@@ -13,7 +13,7 @@
     "id": "liquid-sandbox",
     "title": "Liquid Viewer",
     "description": "View content that uses Liquid syntax.",
-    "entry": "blocks/sandbox/index.tsx",
+    "entry": "blocks/liquid/index.tsx",
     "matches": ["*.md"],
     "example_path": "https://github.com/cs50/labs/blob/2019/fall/mario/less/README.md"
   }
