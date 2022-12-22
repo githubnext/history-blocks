@@ -1647,15 +1647,15 @@ json5@^2.2.1:
   resolved "https://registry.yarnpkg.com/json5/-/json5-2.2.1.tgz#655d50ed1e6f95ad1a3caababd2b0efda10b395c"
   integrity sha512-1hqLFMSrGHRHxav9q9gNjJ5EXznIxGVO09xQRrwplcS8qs28pZ8s8hupZAmqDwZUmVZ2Qb2jnyPOWcDH8m8dlA==
 
+liquidjs@^10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/liquidjs/-/liquidjs-10.0.0.tgz#282579e9f90f4bfd92ef7d09ad4f5aac3ec9fd61"
+  integrity sha512-uY3fKqBSRmnat0wB5qWk0W5N5iT78OUhuIXNRiMfhYQ3p35al9mEWKQ68/Z+WD54V2upaxEM8nHaZ6o1B8WCMA==
+
 liquidjs@^6.0.0:
   version "6.4.3"
   resolved "https://registry.yarnpkg.com/liquidjs/-/liquidjs-6.4.3.tgz#c7caf7a3f6c87dc6a22a5a351328cf8f7298c243"
   integrity sha512-m1xSB10Ncu22NR3X0xdaqu/GvP1xadDCFYGqGgd6me8DAWjyA68BKE5DHJmSxw1CGsWPsX+Hj2v/87J2w/LvMQ==
-
-liquidjs@^9.39.2:
-  version "9.39.2"
-  resolved "https://registry.yarnpkg.com/liquidjs/-/liquidjs-9.39.2.tgz#f2409f1108b91fc4f1b06e1f51f2be70f434cb92"
-  integrity sha512-7fdd8hn7U/FUANGWaBbF41LmsRS40uXj/jFldyddYqgLDGMyZSYJsajOvZIZGkAxJdUYbZksrHRU4Q8kg8sTPg==
 
 lodash.uniqueid@^4.0.1:
   version "4.0.1"
